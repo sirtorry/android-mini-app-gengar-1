@@ -1,5 +1,6 @@
 package com.example.patricktorry.gengarandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -55,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
 */
     }
 
+    /** Called when the user clicks the Send button */
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,4 +2,6 @@
     <string name="app_name">GengarAndroidApp</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="button_send">something text</string>
+    <string name="edit_message">something text</string>
 </resources>

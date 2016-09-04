@@ -9,18 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quiz #1"/>
+        android:text="Quiz #1"
+        android:onClick="sendMessage" />
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quiz #2"/>
+        android:text="Quiz #2"
+        android:onClick="sendMessage"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Quiz #3"/>
+        android:text="Quiz #3"
+        android:onClick="sendMessage"/>
 
 </LinearLayout>
