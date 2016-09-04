@@ -130,14 +130,20 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            if(position == 0) // if the position is 0 we are returning the First tab
+            {
+                NewQuizzes newQuizTab = new NewQuizzes();
+                return newQuizTab;
+            }
+            else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
+            {
+                TakenQuizzes takenQuizTab = new TakenQuizzes();
+                return takenQuizTab;
+            }
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return 2;
         }
 
