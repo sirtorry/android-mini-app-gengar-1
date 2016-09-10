@@ -17,12 +17,19 @@
         android:progress="69" />
 
     <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/progressBar"/>
+
+    <TextView
         android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="you're not supposed to see this"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_below="@+id/progressBar"/>
+        android:layout_below="@+id/progressText"/>
 
     <Button
         android:id="@+id/bottomButton"
