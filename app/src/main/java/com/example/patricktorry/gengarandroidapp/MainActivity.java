@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 1);
         intent.putExtras(b);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     public void spiritPokemon(View view) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 2);
         intent.putExtras(b);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     public void money(View view) {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 3);
         intent.putExtras(b);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     @Override
