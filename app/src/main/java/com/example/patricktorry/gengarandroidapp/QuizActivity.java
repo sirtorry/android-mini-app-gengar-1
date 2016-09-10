@@ -15,7 +15,7 @@ public class QuizActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
+       // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
 
     }
 }
