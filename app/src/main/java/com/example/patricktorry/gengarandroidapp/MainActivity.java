@@ -60,9 +60,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
+    public void myersBriggs(View view) {
         Intent intent = new Intent(this, QuizActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("key", 1);
+        intent.putExtras(b);
         startActivity(intent);
+        finish();
+    }
+
+    public void spiritPokemon(View view) {
+        Intent intent = new Intent(this, QuizActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("key", 2);
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
+    }
+
+    public void money(View view) {
+        Intent intent = new Intent(this, QuizActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("key", 3);
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
     }
 
     @Override

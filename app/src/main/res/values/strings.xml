@@ -4,4 +4,5 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="button_send">something text</string>
     <string name="edit_message">something text</string>
+    <string name="quizTest">Hi there!</string>
 </resources>
