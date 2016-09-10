@@ -17,6 +17,7 @@ public class QuizActivity extends AppCompatActivity {
     private TextView questionText;
     private Handler handler = new Handler();
     private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
+    private PokemonQuiz pokemonObject = new PokemonQuiz();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +30,6 @@ public class QuizActivity extends AppCompatActivity {
         topButton = (Button) findViewById(R.id.topButton);
         bottomButton = (Button) findViewById(R.id.bottomButton);
 
-        progressBar.setProgress(23);
-        progressBar.setMax(69);
-        progressText.setText(23+"/"+69);
-        questionText.setText("how old is jesus");
-        topButton.setText("2016");
-        bottomButton.setText("how the fuck would i KNOW");
-
-
-
         Bundle b = getIntent().getExtras();
         int value = -1; // or other values
         if(b != null)
@@ -45,18 +37,24 @@ public class QuizActivity extends AppCompatActivity {
 
         if(value == 1) {
             setTitle(mbtiObject.getName());
-            mbtiObject.getQuestions();
         }
 
         if(value == 2) {
-            setTitle("Spirit Quiz");
+            setTitle(pokemonObject.getName());
+            progressBar.setProgress(pokemonObject.getCurQuestion());
+            progressBar.setMax(pokemonObject.getTotalQuestions());
+            progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+            questionText.setText("how old is jesus");
+            topButton.setText("2016");
+            bottomButton.setText("how the fuck would i KNOW");
         }
 
         if(value == 3) {
             setTitle("5 Dolla?");
         }
-
        // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
+    }
 
+    protected void initViews() {
     }
 }
