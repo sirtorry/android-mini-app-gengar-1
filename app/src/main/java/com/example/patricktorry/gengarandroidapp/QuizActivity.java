@@ -17,7 +17,7 @@ public class QuizActivity extends AppCompatActivity {
     private TextView questionText;
     private Handler handler = new Handler();
     private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
-    private PokemonQuiz pokemonObject = new PokemonQuiz();
+    private PokemonQuiz pokemonObject = new PokemonQuiz(0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
