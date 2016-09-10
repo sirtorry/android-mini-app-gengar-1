@@ -1,5 +1,6 @@
 package com.example.patricktorry.gengarandroidapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,8 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -83,6 +89,28 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         //finish();
     }
+
+    public void myersBriggsToast(View view) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, mbtiObject.getResult(), duration);
+        toast.show();
+    }
+
+    public void spiritPokemonToast(View view) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, "You are a Gengar", duration);
+        toast.show();
+    }
+
+    public void moneyToast(View view) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, "You will give us money", duration);
+        toast.show();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

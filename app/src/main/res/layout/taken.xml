@@ -11,28 +11,31 @@
     android:gravity="center|top">
 
     <Button
+        android:id="@+id/MBTITOAST"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What MBTI Type are You?"
-        android:onClick="myersBriggs"
+        android:onClick="myersBriggsToast"
         style="?android:attr/borderlessButtonStyle" />
 
 
     <Button
+        android:id="@+id/POKEMONTOAST"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What Is Your Spirit Pokemon?"
-        android:onClick="spiritPokemon"
+        android:onClick="spiritPokemonToast"
         style="?android:attr/borderlessButtonStyle" />
 
     <Button
+        android:id="@+id/MONEYTOAST"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Will You Give Patrick and Torry $5?"
-        android:onClick="money"
+        android:onClick="moneyToast"
         style="?android:attr/borderlessButtonStyle" />
 
 </LinearLayout>
