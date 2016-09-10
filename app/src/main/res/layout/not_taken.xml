@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/buttonLayout"
+    style="?android:attr/buttonBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:divider="?android:dividerHorizontal"
+    android:dividerPadding="8dp"
+    android:showDividers="middle"
     android:gravity="center|top">
 
     <Button
+        android:id="@+id/mbti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What MBTI Type are You?"
-        android:onClick="myersBriggs" />
+        android:onClick="myersBriggs"
+        style="?android:attr/borderlessButtonStyle" />
 
 
     <Button
+        android:id="@+id/spiritPokemon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What Is Your Spirit Pokemon?"
-        android:onClick="spiritPokemon"/>
+        android:onClick="spiritPokemon"
+        style="?android:attr/borderlessButtonStyle" />
 
     <Button
+        android:id="@+id/money"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Will You Give Patrick and Torry $5?"
-        android:onClick="money"/>
+        android:onClick="money"
+        style="?android:attr/borderlessButtonStyle" />
 
 </LinearLayout>
