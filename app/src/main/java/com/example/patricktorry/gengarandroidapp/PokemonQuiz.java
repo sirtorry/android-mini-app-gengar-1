@@ -47,6 +47,22 @@ public class PokemonQuiz {
         return questionList.size();
     }
 
+    public void findResult() {
+        int x = tally.get(0);
+        int y = tally.get(1);
+        int z = tally.get(2);
+
+        if(x > y && x > z) {
+            result = "Squirtle";
+        }
+        else if(y > z) {
+            result = "Charmander";
+        }
+        else {
+            result = "Bulbasaur";
+        }
+    }
+
     public String getResult() {
         return result;
     }

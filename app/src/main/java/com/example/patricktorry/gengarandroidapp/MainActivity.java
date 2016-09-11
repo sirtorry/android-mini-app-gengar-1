@@ -11,10 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

@@ -66,6 +66,10 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pokemonObject.tally(pokemonObject.getQuestion().getRes1());
                 pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
                 displayPokemonQuestion();
             }
         });
@@ -74,6 +78,10 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pokemonObject.tally(pokemonObject.getQuestion().getRes2());
                 pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
                 displayPokemonQuestion();
             }
         });
