@@ -1,6 +1,6 @@
 package com.example.patricktorry.gengarandroidapp;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by Torry on 10/09/2016.
@@ -13,6 +13,7 @@ public class PokemonQuiz {
     private int curQuestion;
     private boolean finished = false;
 
+    ArrayList<Integer> tally = new ArrayList<Integer>();
     ArrayList<Question> questionList = new ArrayList<Question>();
 
     public PokemonQuiz(int curQuestion) {
@@ -26,21 +27,13 @@ public class PokemonQuiz {
         questionList.add(new Question("Night Owl or Early Bird?", "Night Owl", "Early Bird", 0, 1));
         questionList.add(new Question("Would you rather run or lift weights?", "Run", "Lift Weights", 1, 2));
         questionList.add(new Question("Glass half full or glass half empty?", "Half full", "Half empty", 2, 0));
+        tally.add(0);
+        tally.add(0);
+        tally.add(0);
     }
 
-    public String getQuestion() {
-        Question temp = questionList.get(curQuestion);
-        return temp.getQuestion();
-    }
-
-    public String getAnswer1() {
-        Question temp = questionList.get(curQuestion);
-        return temp.getAnswer1();
-    }
-
-    public String getAnswer2() {
-        Question temp = questionList.get(curQuestion);
-        return temp.getAnswer2();
+    public Question getQuestion() {
+        return questionList.get(curQuestion);
     }
 
     public String getName() {
@@ -61,5 +54,15 @@ public class PokemonQuiz {
 
     public boolean isFinished() {
         return finished;
+    }
+
+    public void tally(int x) {
+        Integer value = tally.get(x);
+        value++;
+        tally.set(x,value);
+    }
+
+    public void nextQuestion(){
+        curQuestion++;
     }
 }

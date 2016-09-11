@@ -3,6 +3,7 @@ package com.example.patricktorry.gengarandroidapp;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,12 +42,7 @@ public class QuizActivity extends AppCompatActivity {
 
         if(value == 2) {
             setTitle(pokemonObject.getName());
-            progressBar.setProgress(pokemonObject.getCurQuestion());
-            progressBar.setMax(pokemonObject.getTotalQuestions());
-            progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
-            questionText.setText(pokemonObject.getQuestion());
-            topButton.setText(pokemonObject.getAnswer1());
-            bottomButton.setText(pokemonObject.getAnswer2());
+            displayPokemonQuestion();
         }
 
         if(value == 3) {
@@ -55,6 +51,31 @@ public class QuizActivity extends AppCompatActivity {
        // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
     }
 
-    protected void initViews() {
+    protected void displayPokemonQuestion() {
+        progressBar.setProgress(pokemonObject.getCurQuestion());
+        progressBar.setMax(pokemonObject.getTotalQuestions());
+        progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+
+        Question temp = pokemonObject.getQuestion();
+
+        questionText.setText(temp.getQuestion());
+        topButton.setText(temp.getAnswer1());
+        bottomButton.setText(temp.getAnswer2());
+
+        topButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes1());
+                pokemonObject.nextQuestion();
+                displayPokemonQuestion();
+            }
+        });
+
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes2());
+                pokemonObject.nextQuestion();
+                displayPokemonQuestion();
+            }
+        });
     }
 }
