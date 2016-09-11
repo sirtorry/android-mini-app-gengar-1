@@ -38,6 +38,7 @@ public class QuizActivity extends AppCompatActivity {
 
         if(value == 1) {
             setTitle(mbtiObject.getName());
+            displayMyersQuestion();
         }
 
         if(value == 2) {
@@ -47,11 +48,84 @@ public class QuizActivity extends AppCompatActivity {
 
         if(value == 3) {
             setTitle("5 Dolla?");
+            displayDollarQuestion();
         }
        // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
     }
 
     protected void displayPokemonQuestion() {
+        progressBar.setProgress(pokemonObject.getCurQuestion());
+        progressBar.setMax(pokemonObject.getTotalQuestions());
+        progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+
+        Question temp = pokemonObject.getQuestion();
+
+        questionText.setText(temp.getQuestion());
+        topButton.setText(temp.getAnswer1());
+        bottomButton.setText(temp.getAnswer2());
+
+        topButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes1());
+                pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
+                displayPokemonQuestion();
+            }
+        });
+
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes2());
+                pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
+                displayPokemonQuestion();
+            }
+        });
+    }
+
+    protected void displayMyersQuestion() {
+        progressBar.setProgress(pokemonObject.getCurQuestion());
+        progressBar.setMax(pokemonObject.getTotalQuestions());
+        progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+
+        Question temp = pokemonObject.getQuestion();
+
+        questionText.setText(temp.getQuestion());
+        topButton.setText(temp.getAnswer1());
+        bottomButton.setText(temp.getAnswer2());
+
+        topButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes1());
+                pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
+                displayPokemonQuestion();
+            }
+        });
+
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                pokemonObject.tally(pokemonObject.getQuestion().getRes2());
+                pokemonObject.nextQuestion();
+                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                    pokemonObject.findResult();
+                    finish();
+                }
+                displayPokemonQuestion();
+            }
+        });
+    }
+
+    protected void displayDollarQuestion() {
         progressBar.setProgress(pokemonObject.getCurQuestion());
         progressBar.setMax(pokemonObject.getTotalQuestions());
         progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
