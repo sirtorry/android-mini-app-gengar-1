@@ -1,6 +1,6 @@
 package com.example.patricktorry.gengarandroidapp;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by Torry on 10/09/2016.
@@ -14,10 +14,33 @@ public class PokemonQuiz {
     private boolean finished = false;
 
     ArrayList<Question> questionList = new ArrayList<Question>();
-    questionList.add(new Question("Are you passionate or detached?", "Passionate", "Detached", 1, 0));
 
     public PokemonQuiz(int curQuestion) {
         this.curQuestion = curQuestion;
+        questionList.add(new Question("Water or Fire?", "Water", "Fire", 0, 1));
+        questionList.add(new Question("Are you passionate or detached?", "Passionate", "Detached", 1, 0));
+        questionList.add(new Question("Do you like facts or ideas?", "Facts", "Ideas", 2, 1));
+        questionList.add(new Question("Would you rather go to a volcano or your friend's house?", "Volcano", "Friend's House", 1, 2));
+        questionList.add(new Question("Would you rather live in the countryside or in a city?", "Countryside", "City", 2, 0));
+        questionList.add(new Question("Are you high-strung or mellow?", "High-Strung", "Mellow", 0, 2));
+        questionList.add(new Question("Night Owl or Early Bird?", "Night Owl", "Early Bird", 0, 1));
+        questionList.add(new Question("Would you rather run or lift weights?", "Run", "Lift Weights", 1, 2));
+        questionList.add(new Question("Glass half full or glass half empty?", "Half full", "Half empty", 2, 0));
+    }
+
+    public String getQuestion() {
+        Question temp = questionList.get(curQuestion);
+        return temp.getQuestion();
+    }
+
+    public String getAnswer1() {
+        Question temp = questionList.get(curQuestion);
+        return temp.getAnswer1();
+    }
+
+    public String getAnswer2() {
+        Question temp = questionList.get(curQuestion);
+        return temp.getAnswer2();
     }
 
     public String getName() {

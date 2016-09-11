@@ -44,9 +44,9 @@ public class QuizActivity extends AppCompatActivity {
             progressBar.setProgress(pokemonObject.getCurQuestion());
             progressBar.setMax(pokemonObject.getTotalQuestions());
             progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
-            questionText.setText("how old is jesus");
-            topButton.setText("2016");
-            bottomButton.setText("how the fuck would i KNOW");
+            questionText.setText(pokemonObject.getQuestion());
+            topButton.setText(pokemonObject.getAnswer1());
+            bottomButton.setText(pokemonObject.getAnswer2());
         }
 
         if(value == 3) {
