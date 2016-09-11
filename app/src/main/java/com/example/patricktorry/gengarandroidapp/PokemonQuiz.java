@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class PokemonQuiz {
     private String name = "Pokemon Quiz";
     private String result = "unknown";
-    private int totalQuestions = 10;
     private int curQuestion;
     private boolean finished = false;
 
@@ -41,11 +40,11 @@ public class PokemonQuiz {
     }
 
     public int getCurQuestion() {
-        return curQuestion;
+        return curQuestion + 1;
     }
 
     public int getTotalQuestions() {
-        return totalQuestions;
+        return questionList.size();
     }
 
     public String getResult() {
