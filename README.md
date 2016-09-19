@@ -13,6 +13,4 @@ To-do
 
 10 pts: Design / Style / Appearance / Usability
 
-5 pts: Documentation / Report
-
 Partner Evaluation: https://docs.google.com/forms/d/1bCwa7MUaNy9vH0g3VRTvRxJb9s8HFW_a7BSRhszUIIw/viewform
