@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 1);
         intent.putExtras(b);
         startActivity(intent);
+        findViewById(R.id.mbti).setVisibility(View.GONE);
         //finish();
     }
 
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 2);
         intent.putExtras(b);
         startActivity(intent);
+        findViewById(R.id.spiritPokemon).setVisibility(View.GONE);
         //finish();
     }
 
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         b.putInt("key", 3);
         intent.putExtras(b);
         startActivity(intent);
+        findViewById(R.id.money).setVisibility(View.GONE);
         //finish();
     }
 

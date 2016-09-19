@@ -43,6 +43,8 @@ public class QuizActivity extends AppCompatActivity {
         if(value == 1) {
             setTitle(mbtiObject.getName());
             displayMyersQuestion();
+//            findViewById(R.id.mbti).setVisibility(View.GONE);
+//            findViewById(R.id.MBTITOAST).setVisibility(View.VISIBLE);
         }
 
         if(value == 2) {
