@@ -1,8 +1,6 @@
 # android-mini-app-gengar-1
 To-do
 
-10 pts: The list of quizzes to take is populated with at least 2 quizzes; there is nothing in the other list
-
 5 pts: The results are shown at the end of the quiz
 
 5 pts: There is a way in app (not the back button) to get back to the list of quizzes after seeing quiz results
