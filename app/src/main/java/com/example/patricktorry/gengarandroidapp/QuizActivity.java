@@ -25,6 +25,10 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        if(savedInstanceState != null) {
+            pokemonObject = (PokemonQuiz) savedInstanceState.getSerializable("obj");
+        }
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressText = (TextView) findViewById(R.id.progressText);
         questionText = (TextView) findViewById(R.id.questionText);
@@ -52,6 +56,12 @@ public class QuizActivity extends AppCompatActivity {
         }
        // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_display_message);
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putSerializable("obj", pokemonObject);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+    //test
 
     protected void displayPokemonQuestion() {
         progressBar.setProgress(pokemonObject.getCurQuestion());

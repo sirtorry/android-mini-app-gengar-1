@@ -1,12 +1,13 @@
 package com.example.patricktorry.gengarandroidapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Torry on 10/09/2016.
  */
 
-public class PokemonQuiz {
+public class PokemonQuiz implements Serializable{
     private String name = "Pokemon Quiz";
     private String result = "unknown";
     private int curQuestion;
