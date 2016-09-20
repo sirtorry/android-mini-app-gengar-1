@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
+    private MyersQuiz mbtiObject = new MyersQuiz(0);
+    private PokemonQuiz pokemonObject = new PokemonQuiz(0);
+    private MoneyQuiz moneyObject = new MoneyQuiz(0);
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(b);
         startActivity(intent);
         findViewById(R.id.mbti).setVisibility(View.GONE);
+        findViewById(R.id.MBTITOAST).setVisibility(View.VISIBLE);
         //finish();
     }
 
@@ -78,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
         Bundle b = new Bundle();
         b.putInt("key", 2);
         intent.putExtras(b);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
         findViewById(R.id.spiritPokemon).setVisibility(View.GONE);
+        findViewById(R.id.POKEMONTOAST).setVisibility(View.VISIBLE);
         //finish();
     }
 
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(b);
         startActivity(intent);
         findViewById(R.id.money).setVisibility(View.GONE);
+        findViewById(R.id.MONEYTOAST).setVisibility(View.VISIBLE);
         //finish();
     }
 

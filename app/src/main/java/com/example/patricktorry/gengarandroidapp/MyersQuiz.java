@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 
 public class MyersQuiz implements Serializable{
-    private String name = "Myers-Briggs Typer Indicator";
+    private String name = "Myers-Briggs Type Indicator";
     private String result = "unknown";
     private int curQuestion;
     private boolean finished = false;

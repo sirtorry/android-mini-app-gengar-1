@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="What MBTI Type are You?"
+        android:text="You are INTJ"
         android:onClick="myersBriggsToast"
         style="?android:attr/borderlessButtonStyle" />
 
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="What Is Your Spirit Pokemon?"
+        android:text="You are bulbasaur"
         android:onClick="spiritPokemonToast"
         style="?android:attr/borderlessButtonStyle" />
 
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Will You Give Patrick and Torry $5?"
+        android:text="You will not give us $5"
         android:onClick="moneyToast"
         style="?android:attr/borderlessButtonStyle" />
 

@@ -75,6 +75,11 @@ public class QuizActivity extends AppCompatActivity {
         findViewById(R.id.topButton).setVisibility(View.GONE);
         bottomButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                Intent i = new Intent(this, MainActivity);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("pok","You are " + pokemonObject.getResult());
+//                i.putExtras(bundle);
+//                startActivity(i);
                 finish();
             }
         });
