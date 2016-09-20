@@ -1,10 +1,6 @@
 # android-mini-app-gengar-1
 To-do
 
-5 pts: The results are shown at the end of the quiz
-
-5 pts: There is a way in app (not the back button) to get back to the list of quizzes after seeing quiz results
-
 10 pts: The completed quiz shows up in the completed list and not in the unfinished list
 
 10 pts: Tapping on the completed quiz pops up the result of the quiz
