@@ -17,8 +17,9 @@ public class QuizActivity extends AppCompatActivity {
     private TextView progressText;
     private TextView questionText;
     private Handler handler = new Handler();
-    private MyersBriggsQuiz mbtiObject = new MyersBriggsQuiz();
+    private MyersQuiz mbtiObject = new MyersQuiz(0);
     private PokemonQuiz pokemonObject = new PokemonQuiz(0);
+    private MoneyQuiz moneyObject = new MoneyQuiz(0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,9 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         if(savedInstanceState != null) {
-            pokemonObject = (PokemonQuiz) savedInstanceState.getSerializable("obj");
+            pokemonObject = (PokemonQuiz) savedInstanceState.getSerializable("pok");
+            moneyObject = (MoneyQuiz) savedInstanceState.getSerializable("mon");
+            mbtiObject = (MyersQuiz) savedInstanceState.getSerializable("mbt");
         }
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -60,10 +63,22 @@ public class QuizActivity extends AppCompatActivity {
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putSerializable("obj", pokemonObject);
+        savedInstanceState.putSerializable("pok", pokemonObject);
+        savedInstanceState.putSerializable("mon", moneyObject);
+        savedInstanceState.putSerializable("mbt", mbtiObject);
         super.onSaveInstanceState(savedInstanceState);
     }
     //test
+    protected void displayPokemonResult() {
+        questionText.setText("You are " + pokemonObject.getResult());
+        bottomButton.setText("Return to Quizzes");
+        findViewById(R.id.topButton).setVisibility(View.GONE);
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
     protected void displayPokemonQuestion() {
         progressBar.setProgress(pokemonObject.getCurQuestion());
@@ -80,11 +95,13 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pokemonObject.tally(pokemonObject.getQuestion().getRes1());
                 pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                if(pokemonObject.getCurQuestion() - 1 == pokemonObject.getTotalQuestions()) {
                     pokemonObject.findResult();
-                    finish();
+                    displayPokemonResult();
                 }
-                displayPokemonQuestion();
+                else {
+                    displayPokemonQuestion();
+                }
             }
         });
 
@@ -92,21 +109,23 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pokemonObject.tally(pokemonObject.getQuestion().getRes2());
                 pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
+                if(pokemonObject.getCurQuestion() - 1 == pokemonObject.getTotalQuestions()) {
                     pokemonObject.findResult();
-                    finish();
+                    displayPokemonResult();
                 }
-                displayPokemonQuestion();
+                else {
+                    displayPokemonQuestion();
+                }
             }
         });
     }
 
     protected void displayMyersQuestion() {
-        progressBar.setProgress(pokemonObject.getCurQuestion());
-        progressBar.setMax(pokemonObject.getTotalQuestions());
-        progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+        progressBar.setProgress(mbtiObject.getCurQuestion());
+        progressBar.setMax(mbtiObject.getTotalQuestions());
+        progressText.setText(mbtiObject.getCurQuestion() + "/" + mbtiObject.getTotalQuestions());
 
-        Question temp = pokemonObject.getQuestion();
+        Question temp = mbtiObject.getQuestion();
 
         questionText.setText(temp.getQuestion());
         topButton.setText(temp.getAnswer1());
@@ -114,35 +133,49 @@ public class QuizActivity extends AppCompatActivity {
 
         topButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                pokemonObject.tally(pokemonObject.getQuestion().getRes1());
-                pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
-                    pokemonObject.findResult();
-                    finish();
+                mbtiObject.tally(mbtiObject.getQuestion().getRes1());
+                mbtiObject.nextQuestion();
+                if(mbtiObject.getCurQuestion() - 1 == mbtiObject.getTotalQuestions()) {
+                    mbtiObject.findResult();
+                    displayMbtiResult();
+                } else {
+                    displayMyersQuestion();
                 }
-                displayPokemonQuestion();
             }
         });
 
         bottomButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                pokemonObject.tally(pokemonObject.getQuestion().getRes2());
-                pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
-                    pokemonObject.findResult();
-                    finish();
+                mbtiObject.tally(mbtiObject.getQuestion().getRes2());
+                mbtiObject.nextQuestion();
+                if(mbtiObject.getCurQuestion() - 1 == mbtiObject.getTotalQuestions()) {
+                    mbtiObject.findResult();
+                    displayMbtiResult();
                 }
-                displayPokemonQuestion();
+                else {
+                    displayMyersQuestion();
+                }
+            }
+        });
+    }
+
+    protected void displayMbtiResult() {
+        questionText.setText(mbtiObject.getResult());
+        bottomButton.setText("Return to Quizzes");
+        findViewById(R.id.topButton).setVisibility(View.GONE);
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
             }
         });
     }
 
     protected void displayDollarQuestion() {
-        progressBar.setProgress(pokemonObject.getCurQuestion());
-        progressBar.setMax(pokemonObject.getTotalQuestions());
-        progressText.setText(pokemonObject.getCurQuestion() + "/" + pokemonObject.getTotalQuestions());
+        progressBar.setProgress(moneyObject.getCurQuestion());
+        progressBar.setMax(moneyObject.getTotalQuestions());
+        progressText.setText(moneyObject.getCurQuestion() + "/" + moneyObject.getTotalQuestions());
 
-        Question temp = pokemonObject.getQuestion();
+        Question temp = moneyObject.getQuestion();
 
         questionText.setText(temp.getQuestion());
         topButton.setText(temp.getAnswer1());
@@ -150,25 +183,40 @@ public class QuizActivity extends AppCompatActivity {
 
         topButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                pokemonObject.tally(pokemonObject.getQuestion().getRes1());
-                pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
-                    pokemonObject.findResult();
-                    finish();
+                moneyObject.tally(moneyObject.getQuestion().getRes1());
+                moneyObject.nextQuestion();
+                if(moneyObject.getCurQuestion() - 1 == moneyObject.getTotalQuestions()) {
+                    moneyObject.findResult();
+                    displayMoneyResult();
                 }
-                displayPokemonQuestion();
+                else {
+                    displayDollarQuestion();
+                }
             }
         });
 
         bottomButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                pokemonObject.tally(pokemonObject.getQuestion().getRes2());
-                pokemonObject.nextQuestion();
-                if(pokemonObject.getCurQuestion() == pokemonObject.getTotalQuestions()) {
-                    pokemonObject.findResult();
-                    finish();
+                moneyObject.tally(moneyObject.getQuestion().getRes2());
+                moneyObject.nextQuestion();
+                if(moneyObject.getCurQuestion() - 1 == moneyObject.getTotalQuestions()) {
+                    moneyObject.findResult();
+                    displayMoneyResult();
                 }
-                displayPokemonQuestion();
+                else {
+                    displayDollarQuestion();
+                }
+            }
+        });
+    }
+
+    protected void displayMoneyResult() {
+        questionText.setText(moneyObject.getResult());
+        bottomButton.setText("Return to Quizzes");
+        findViewById(R.id.topButton).setVisibility(View.GONE);
+        bottomButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
             }
         });
     }
